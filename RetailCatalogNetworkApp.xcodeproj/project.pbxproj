@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EF96DB3C2FC92805009DEB7B /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = EF96DB3B2FC92805009DEB7B /* FactoryKit */; };
+		EF96DB3E2FC92805009DEB7B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EF96DB3D2FC92805009DEB7B /* Kingfisher */; };
+		EF96DB402FC9280B009DEB7B /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = EF96DB3F2FC9280B009DEB7B /* FactoryTesting */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EF96DA722FC9248C009DEB7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF96DB3E2FC92805009DEB7B /* Kingfisher in Frameworks */,
+				EF96DB3C2FC92805009DEB7B /* FactoryKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF96DB402FC9280B009DEB7B /* FactoryTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +100,7 @@
 				EF96DA5D2FC9248C009DEB7B /* RetailCatalogNetworkApp */,
 				EF96DA742FC9248C009DEB7B /* RetailCatalogNetworkAppTests */,
 				EF96DA7E2FC9248C009DEB7B /* RetailCatalogNetworkAppUITests */,
+				EF96DB3A2FC92805009DEB7B /* Frameworks */,
 				EF96DA5C2FC9248C009DEB7B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +113,13 @@
 				EF96DA7B2FC9248C009DEB7B /* RetailCatalogNetworkAppUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EF96DB3A2FC92805009DEB7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +142,8 @@
 			);
 			name = RetailCatalogNetworkApp;
 			packageProductDependencies = (
+				EF96DB3B2FC92805009DEB7B /* FactoryKit */,
+				EF96DB3D2FC92805009DEB7B /* Kingfisher */,
 			);
 			productName = RetailCatalogNetworkApp;
 			productReference = EF96DA5B2FC9248C009DEB7B /* RetailCatalogNetworkApp.app */;
@@ -148,6 +167,7 @@
 			);
 			name = RetailCatalogNetworkAppTests;
 			packageProductDependencies = (
+				EF96DB3F2FC9280B009DEB7B /* FactoryTesting */,
 			);
 			productName = RetailCatalogNetworkAppTests;
 			productReference = EF96DA712FC9248C009DEB7B /* RetailCatalogNetworkAppTests.xctest */;
@@ -208,6 +228,10 @@
 			);
 			mainGroup = EF96DA522FC9248C009DEB7B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EF96DAE12FC927B4009DEB7B /* XCRemoteSwiftPackageReference "Factory" */,
+				EF96DB392FC927F6009DEB7B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EF96DA5C2FC9248C009DEB7B /* Products */;
 			projectDirPath = "";
@@ -563,6 +587,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF96DAE12FC927B4009DEB7B /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.5;
+			};
+		};
+		EF96DB392FC927F6009DEB7B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF96DB3B2FC92805009DEB7B /* FactoryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF96DAE12FC927B4009DEB7B /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = FactoryKit;
+		};
+		EF96DB3D2FC92805009DEB7B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF96DB392FC927F6009DEB7B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		EF96DB3F2FC9280B009DEB7B /* FactoryTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF96DAE12FC927B4009DEB7B /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = FactoryTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF96DA532FC9248C009DEB7B /* Project object */;
 }
