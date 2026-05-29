@@ -10,12 +10,8 @@ import FactoryKit
 extension Container {
     
     // MARK: - Infraestructure
-    var apiClient: Factory<APIClientProtocol> {
-        self { APIClient() }.singleton
-    }
-    
-    var dataTransferService: Factory<DataTransferServiceProtocol> {
-        self { DataTransferService(apiClient: self.apiClient()) }.singleton
+    public var httpClient: Factory<HTTPClient> {
+            self { URLSessionNetworkClient() }.singleton
     }
     
     var coreDataStorage: Factory<CoreDataStorageProtocol> {
@@ -30,7 +26,6 @@ extension Container {
     var productsRepository: Factory<ProductsRepositoryProtocol> {
         self {
             DefaultProductsRepository(
-                networkService: self.dataTransferService(),
                 cacheStorage: self.coreDataStorage()
             )
         }
