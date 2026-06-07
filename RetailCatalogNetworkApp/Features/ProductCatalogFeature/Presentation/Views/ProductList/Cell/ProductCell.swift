@@ -9,10 +9,10 @@ import UIKit
 import Kingfisher
 
 final class ProductCell: UITableViewCell {
-    private let productImageView = UIImageView()
-    private let nameLabel = UILabel()
-    private let priceLabel = UILabel()
-    private let badgeLabel = UILabel()
+    private lazy var productImageView = UIImageView()
+    private lazy var nameLabel = UILabel()
+    private lazy var priceLabel = UILabel()
+    private lazy var badgeLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

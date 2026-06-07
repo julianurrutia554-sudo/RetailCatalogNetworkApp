@@ -9,9 +9,11 @@ import UIKit
 
 final class ProductListViewController: UIViewController {
     private let viewModel: ProductListViewModel
-    private let tableView = UITableView()
-    private let loader = UIActivityIndicatorView(style: .large)
+    private lazy var tableView = UITableView()
+    private lazy var loader = UIActivityIndicatorView(style: .large)
     private var dataSource: [ProductUIModel] = []
+
+    var onProductSelected: ((ProductUIModel) -> Void)?
     
     init(viewModel: ProductListViewModel) {
         self.viewModel = viewModel
@@ -22,16 +24,17 @@ final class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setUpView()
         bindViewModel()
         Task { await viewModel.loadProducts() }
     }
     
-    private func setupUI() {
+    private func setUpView() {
         view.backgroundColor = .systemBackground
         title = Strings.ProductCatalog.catalog.localized
         tableView.frame = view.bounds
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = 84
         tableView.register(ProductCell.self, forCellReuseIdentifier: "ProductCell")
         view.addSubview(tableView)
@@ -67,5 +70,12 @@ extension ProductListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductCell
         cell.configure(with: dataSource[indexPath.row])
         return cell
+    }
+}
+
+extension ProductListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        onProductSelected?(dataSource[indexPath.row])
     }
 }

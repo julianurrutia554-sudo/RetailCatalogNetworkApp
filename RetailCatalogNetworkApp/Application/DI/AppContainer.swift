@@ -21,24 +21,4 @@ extension Container {
     var keychainStorage: Factory<KeychainStorageProtocol> {
         self { KeychainStorage() }.singleton
     }
-    
-    // MARK: - Data
-    var productsRepository: Factory<ProductsRepositoryProtocol> {
-        self {
-            DefaultProductsRepository(
-                cacheStorage: self.coreDataStorage()
-            )
-        }
-    }
-    
-    // MARK: - Domain
-    var fetchProductsUseCase: Factory<FetchProductsUseCase> {
-        self { FetchProductsUseCase(repository: self.productsRepository()) }
-    }
-    
-    // MARK: - Presentation
-    @MainActor
-    var productListViewModel: Factory<ProductListViewModel> {
-        self { ProductListViewModel(fetchProductsUseCase: self.fetchProductsUseCase()) }
-    }
 }

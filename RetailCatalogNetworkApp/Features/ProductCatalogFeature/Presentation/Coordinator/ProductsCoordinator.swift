@@ -17,8 +17,17 @@ final class ProductsCoordinator {
     }
     
     func start() {
-        let viewModel = Container.shared.productListViewModel()
+        let viewModel = ProductCatalogContainer.shared.productListViewModel()
         let viewController = ProductListViewController(viewModel: viewModel)
+        viewController.onProductSelected = { [weak self] product in
+            self?.showDetail(product: product)
+        }
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func showDetail(product: ProductUIModel) {
+        let viewModel = ProductDetailViewModel(product: product)
+        let viewController = ProductDetailViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
