@@ -28,8 +28,8 @@ final class ProductListViewModel {
             let entities = try await fetchProductsUseCase.execute()
             
             let uiModels = entities.map { entity in
-                let priceDisplay = entity.price == 0 ? "Gratis" : String(format: "%.2f €", entity.price)
-                let badge = entity.id.contains("ZARA") ? "¡Tendencia!" : nil
+                let priceDisplay = entity.price == 0 ? Strings.ProductCatalog.free.localized : String(format: "%.2f €", entity.price)
+                let badge = entity.id.contains("ZARA") ? Strings.ProductCatalog.trending.localized : nil
                 
                 return ProductUIModel(
                     id: entity.id,

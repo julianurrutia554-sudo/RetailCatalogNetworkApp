@@ -29,7 +29,7 @@ final class ProductListViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        title = "Catálogo Retail"
+        title = Strings.ProductCatalog.catalog.localized
         tableView.frame = view.bounds
         tableView.dataSource = self
         tableView.rowHeight = 84
