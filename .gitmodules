@@ -1,3 +1,3 @@
-[submodule "RetailCatalogNetworkApp/Infrastructure/Network"]
-	path = RetailCatalogNetworkApp/Infrastructure/Network
-	url = https://github.com/julianurrutia554-sudo/NetworkCore.git
+[submodule "Network"]
+	path = Network
+	url = https://github.com/julianurrutia554-sudo/NetworkCore
