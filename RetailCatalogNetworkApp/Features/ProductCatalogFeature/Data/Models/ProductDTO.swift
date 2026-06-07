@@ -6,8 +6,8 @@
 //
 
 struct ProductDTO: Decodable {
-    let sku_id: String
-    let product_title: String
-    let sale_price: Double
-    let image_url_path: String
+    let id: Int
+    let title: String
+    let price: Double
+    let thumbnail: String
 }

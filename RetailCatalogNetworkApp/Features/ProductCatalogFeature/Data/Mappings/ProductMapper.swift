@@ -8,10 +8,10 @@
 final class ProductMapper {
     static func toDomain(dto: ProductDTO) -> Product {
         return Product(
-            id: dto.sku_id,
-            name: dto.product_title,
-            price: dto.sale_price,
-            imageUrl: dto.image_url_path
+            id: String(dto.id),
+            name: dto.title,
+            price: dto.price,
+            imageUrl: dto.thumbnail
         )
     }
 }

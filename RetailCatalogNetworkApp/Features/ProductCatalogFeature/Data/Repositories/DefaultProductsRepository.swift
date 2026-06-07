@@ -19,8 +19,8 @@ final class DefaultProductsRepository: ProductsRepositoryProtocol {
     
     func getProducts() async throws -> [Product] {
         do {
-            let dtos: [ProductDTO] = try await networkService.request(target: RetailAPI.getProducts)
-            return dtos.map { ProductMapper.toDomain(dto: $0) }
+            let response: ProductsResponseDTO = try await networkService.request(target: RetailAPI.getProducts)
+            return response.products.map { ProductMapper.toDomain(dto: $0) }
         } catch {
             #if DEBUG
             print("⚠️ Caída de red. Usando contingencia local.")

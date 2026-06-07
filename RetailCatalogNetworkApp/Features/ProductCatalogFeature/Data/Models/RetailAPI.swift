@@ -12,7 +12,7 @@ enum RetailAPI: TargetType {
     case getProductDetail(id: String)
     
     var baseURL: URL {
-        return URL(string: "https://api.tu-retail.com/v1")!
+        Environment.baseURL
     }
     
     var path: String {
