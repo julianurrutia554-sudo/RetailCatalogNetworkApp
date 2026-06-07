@@ -34,6 +34,14 @@ extension ProductCatalogContainer {
     var productListViewModel: Factory<ProductListViewModel> {
         self { ProductListViewModel(fetchProductsUseCase: self.fetchProductsUseCase()) }
     }
+    
+    @MainActor
+    var productDetailViewController: ParameterFactory<ProductUIModel, ProductDetailViewController> {
+        self { product in
+            let viewModel = ProductDetailViewModel(product: product)
+            return ProductDetailViewController(viewModel: viewModel)
+        }
+    }
 
 }
 

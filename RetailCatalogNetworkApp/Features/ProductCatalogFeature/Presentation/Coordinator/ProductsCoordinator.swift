@@ -26,8 +26,7 @@ final class ProductsCoordinator {
     }
 
     func showDetail(product: ProductUIModel) {
-        let viewModel = ProductDetailViewModel(product: product)
-        let viewController = ProductDetailViewController(viewModel: viewModel)
+        let viewController = ProductCatalogContainer.shared.productDetailViewController(product)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
